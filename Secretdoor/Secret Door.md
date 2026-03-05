@@ -73,11 +73,11 @@ if __name__ == "__main__":
 
 ### 4. Install `pip` and `pillow`
 
-![Alt](assets/secretdoor-install_pipPILLOW.png)
+![Alt](../assets/secretdoor-install_pipPILLOW.png)
 
 ---
 
-![Alt](assets/secretdoor_flag.png)
+![Alt](../assets/secretdoor_flag.png)
 ```
 flag{1t_is_very_light_b0x}
 ```

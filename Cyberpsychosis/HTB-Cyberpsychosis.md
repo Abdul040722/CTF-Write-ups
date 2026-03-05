@@ -1,4 +1,4 @@
-![Alt](assets/HTB-Cuberpsychosis.png)
+![Alt](../assets/HTB-Cuberpsychosis.png)
 Attached File(s): `diamorphine.ko`
 <div class="page-break" style="page-break-before: always;"></div>
 
@@ -24,13 +24,13 @@ if (signal == 46)
 ```
 
 The module uses `module_hidden`, `module_previous`, and `DAT_001010c8/d0` to manually unlink and relink itself from the kernel’s module list.
-![Alt](assets/HTB-Cyberpsychosis-dis.png)
+![Alt](../assets/HTB-Cyberpsychosis-dis.png)
 <div class="page-break" style="page-break-before: always;"></div>
 
 ## Hooks and Stealth – `hacked_getdents`
 
 The rootkit’s stealth comes from another hooked syscall: `getdents64()`, reimplemented as `hacked_getdents`. This function intercepts directory listings and filters out suspicious entries—specifically those matching the name **"psychosis"**.
-![Alt](assets/HTB-Cyberpsychosis-folder.png)
+![Alt](../assets/HTB-Cyberpsychosis-folder.png)
 
 So even if a file or folder exists—like a flag inside `/opt/psychosis`—you won’t see it with `ls`, `find`, or `readdir()`-based tools. The system will pretend it's not there unless the module is removed or the hook is bypassed.
 Connecting to the instance confirms the expected behavior:
@@ -83,6 +83,6 @@ ls /opt
 
 
 ### Step 4: Grab the Flag
-![Alt](assets/HTB-Cyberpsychosis-flag.png)
+![Alt](../assets/HTB-Cyberpsychosis-flag.png)
  `HTB{N0w_Y0u_C4n_S33_m3_4nd_th3_r00tk1t_h4s_b33n_sUcc3ssfully_d3f34t3d!!}`
-![Alt](assets/HTB-Cyberpsychosis-proof.png)
+![Alt](../assets/HTB-Cyberpsychosis-proof.png)

@@ -1,4 +1,4 @@
-![Alt](assets/picoCTF-vvvhidden.png)
+![Alt](../assets/picoCTF-vvvhidden.png)
 <div class="page-break" style="page-break-before: always;"></div>
 
 ### 1. Open the capture and focus on clear-text traffic
@@ -59,8 +59,8 @@ print(flag.decode())
 ```
 
 Output:
-![Alt](assets/picoCTF-vvvhidden_flag.png)
+![Alt](../assets/picoCTF-vvvhidden_flag.png)
 ```
 picoCTF{n1c3_job_f1nd1ng_th3_s3cr3t_in_the_im@g3}
 ```
-![Alt](assets/picoCTF-vvvhidden_proof.png)
+![Alt](../assets/picoCTF-vvvhidden_proof.png)

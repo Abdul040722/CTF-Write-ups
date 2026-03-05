@@ -1,4 +1,4 @@
-![Alt](assets/picoCTF_Sleuthkit_Apprentice.png)
+![Alt](../assets/picoCTF_Sleuthkit_Apprentice.png)
 Attached File: `disk.flag.img.gz`
 
 ## Step 1 – Unpack the Disk Image
@@ -22,7 +22,7 @@ mmls disk.flag.img
 ```
 
 Output:
-![Alt](assets/picoCTF-SI_mmls.png)
+![Alt](../assets/picoCTF-SI_mmls.png)
 
 ## Step 3 – Mount Partition #002
 
@@ -74,13 +74,13 @@ A basic grep attempt didn’t return anything useful:
 sudo grep -ri pico flagsearch/ 2>/dev/null
 ```
 
-![Alt](assets/picoCTF-SKI_grep&find.png)
+![Alt](../assets/picoCTF-SKI_grep&find.png)
 
 Moved directly to checking the `/root` directory, which was previously inaccessible due to permissions:
 ```bash
 sudo ls -la flagsearch/root
 ```
-![Alt](assets/picoCTF-SKI_folders.png)
+![Alt](../assets/picoCTF-SKI_folders.png)
 
 Found:
 ```
@@ -105,8 +105,8 @@ sudo cat flagsearch/root/my_folder/flag.uni.txt
 
 ## Flag
 
-![Alt](assets/picoCTF-SKI_flag.png)
+![Alt](../assets/picoCTF-SKI_flag.png)
 ```
 picoCTF{by73_5urf3r_adac6cb4}
 ```
-![Alt](assets/picoCTF-SKI_proof.png)
+![Alt](../assets/picoCTF-SKI_proof.png)
