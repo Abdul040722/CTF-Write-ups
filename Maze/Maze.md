@@ -1,4 +1,4 @@
-![[HTB-Maze.png]]
+![Alt](assets/HTB-Maze.png)
 Attached files : `maze.exe`, `enc_maze.zip`, `maze.png`
 <div class="page-break" style="page-break-before: always;"></div>
 
@@ -224,7 +224,7 @@ print('FLAG:', ''.join(chr(c) for c in flag))
 <div class="page-break" style="page-break-before: always;"></div>
 
 Output: `HTB{w0W_Y0u_C0uld_E5c4p3_Th1s_M4Z33!!}`
-![[HTB-Maze-Win.png]]
+![Alt](assets/HTB-Maze-Win.png)
 ### **Key Insights**
 1. **Seed Obfuscation**: Critical values (like the seed 493) are often hidden in unrelated files (e.g., image bytes)
 2. **Progressive Decryption**: 

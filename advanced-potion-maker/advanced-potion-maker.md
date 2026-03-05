@@ -1,4 +1,4 @@
-![[picoCTF-APM.png]]
+![Alt](assets/picoCTF-APM.png)
 Attached file: `advanced-potion-making`
 <div class="page-break" style="page-break-before: always;"></div>
 
@@ -14,7 +14,7 @@ Which yielded nothing, this usually prompts me to analyze what type of data is i
 ```bash
 $ xxd -g1 -l 16 advanced-potion-making > APM-hex.txt
 ```
-![[apm-hexheader.png]]
+![Alt](assets/apm-hexheader.png)
 
 Based on this example I found, a real PNG should look something like this:
 ```bash
@@ -33,17 +33,17 @@ Based on this example I found, a real PNG should look something like this:
 ```
 
 2. **Assumption** – If the rest of the file is intact, fixing those bytes should give a valid PNG the usual tools can parse.
-Only **5** bytes  are off, so using `hexeditor` I changed those values to conform with standard![[picoctf-APM_hexeditor.png]]
+Only **5** bytes  are off, so using `hexeditor` I changed those values to conform with standard![Alt](assets/picoctf-APM_hexeditor.png)
 
 At this point the image opens—and it’s just a red canvas. The flag clearly isn’t in the visible pixels, so we shift to steganography.
 **Classic trick**: data is embedded in the _least-significant bit_ (LSB) of one colour channel.
-![[pico-APM-stegonline.png]]
+![Alt](assets/pico-APM-stegonline.png)
 <div class="page-break" style="page-break-before: always;"></div>
 
 1. choose **browse Bit Planes → Red 0** (that’s the lowest bit of the red channel).   
 2. Boom—black text on white background spells out:
-![[pico-APM-stegonline2.png]]
+![Alt](assets/pico-APM-stegonline2.png)
 ```
 picoCTF{w1z4rdry}
 ```
-![[picoCTF-APMP_proof.png]]
+![Alt](assets/picoCTF-APMP_proof.png)

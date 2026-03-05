@@ -1,4 +1,4 @@
-![[Sem 4/Malware Analysis/CTFs/CyberTalents/Hero/CT-Hero.png]]
+![Alt](assets/Sem 4/Malware Analysis/CTFs/CyberTalents/Hero/CT-Hero.png)
 Attached files:
 `Hero.unknown` — some form of unknown ASCII text (implied to be disassembled code)
 `flag.enc` — a JSON file with a long list of large negative integers.
@@ -14,7 +14,7 @@ flag.enc: JSON data
 ```
 
 Peeking inside:
-![[CT-Hero_CatFlag.png]]
+![Alt](assets/CT-Hero_CatFlag.png)
 Then
 ```bash
 cat Hero.unknown
@@ -25,7 +25,7 @@ That last part was the clue that gave it away. I recognized the structure: `LOAD
 ### **Understanding `Hero.unknown`**
 ### 1. Function Definitions
 #### `gen(i): return i ^ 11`
-![[CT-Hero_function1.png]]
+![Alt](assets/CT-Hero_function1.png)
 This means:
 - Load argument `i`
 - Load constant `11`
@@ -33,7 +33,7 @@ This means:
 - Return result
 
 #### `gen2(i): return 14 ** i`
-![[CT-Hero_function2.png]]
+![Alt](assets/CT-Hero_function2.png)
 This means:
 - Load constant `14`
 - Load argument `i`
@@ -45,24 +45,24 @@ This means:
 Now parse the bytecode of the main execution step by step.
 
 #### Lines 1–6: Function Definitions
-![[CT-Hero_main1.png]]
+![Alt](assets/CT-Hero_main1.png)
 Creates and stores function `gen`.
 
-![[CT-Hero_main2.png]]
+![Alt](assets/CT-Hero_main2.png)
 Creates and stores function `gen2`.
 
 #### Lines 7–9: Read flag.txt and convert to list of ASCII values
-![[CT-Hero_main3.png]]
+![Alt](assets/CT-Hero_main3.png)
 Opens `flag.txt` for reading, stores file object as `f`.
 
-![[CT-Hero_main4.png]]
+![Alt](assets/CT-Hero_main4.png)
 Initializes empty list `o`.
 
-![[CT-Hero_main5.png]]
+![Alt](assets/CT-Hero_main5.png)
 Reads all lines from the file → `f.readlines()`, then grabs the first line with `[0]` → stored as `r`.
-![[CT-Hero_main6.png]]
+![Alt](assets/CT-Hero_main6.png)
 For loop over each index `i` in `range(len(r))`.
-![[CT-Hero_main7.png]]
+![Alt](assets/CT-Hero_main7.png)
 For each character at `r[i]`:
 - Get its ASCII value with `ord(r[i])`
 - Append to list `o`
@@ -76,18 +76,18 @@ What’s Happening So Far:
 <div class="page-break" style="page-break-before: always;"></div>
 
 #### Lines 14–20: Obfuscation
-![[CT-Hero_obf_logic1.png]]
+![Alt](assets/CT-Hero_obf_logic1.png)
 Creates a new empty list `s` (output list of encrypted values).
 
-![[CT-Hero-obf_logic2.png]]
+![Alt](assets/CT-Hero-obf_logic2.png)
 Loop over each index `i` in `range(len(o))`
 
 Inside the loop:
-![[CT-Hero-obf_logic3.png]]
+![Alt](assets/CT-Hero-obf_logic3.png)
 `t = gen(i)` → XOR `i ^ 11`
-![[CT-Hero-obf_logic4.png]]
+![Alt](assets/CT-Hero-obf_logic4.png)
 `f = gen2(t)` → `14 ** (i ^ 11)`
-![[CT-Hero-obf_logic5.png]]
+![Alt](assets/CT-Hero-obf_logic5.png)
 
 Now comes the obfuscation:
 ```python
@@ -97,7 +97,7 @@ s.append(val)
 ```
 This is how the `flag.enc` values were created.
 #### Line 20–21: Output
-![[CT-Hero-encryption.png]]
+![Alt](assets/CT-Hero-encryption.png)
 Just prints `s` and its length. Not important to us.
 
 ## Final Formula
@@ -145,9 +145,9 @@ print("Recovered Flag:", flag)
 ```
 
 ### Output
-![[CT-Hero-flag.png]]
+![Alt](assets/CT-Hero-flag.png)
 ```
 Recovered Flag: Flag{Y0u_l00k_lik3_@_r3v3rs1ng_HERO!}
 ```
 And there it was — clear as day.
-![[CT-Hero 1.png]]
+![Alt](assets/CT-Hero 1.png)

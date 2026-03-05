@@ -1,4 +1,4 @@
-![[picoCTF_moonwalk.png]]
+![Alt](assets/picoCTF_moonwalk.png)
 Attached File: `message.wav`
 <div class="page-break" style="page-break-before: always;"></div>
 
@@ -56,8 +56,8 @@ The QSSTV waterfall should immediately light up with the distinct SSTV stripe pa
 ## 4. Extract
 
 Let the entire Scottie 1 frame (~110 s) paint. When the last line renders the final image shows:
-![[picoCTF-moonwalk_flag.png]]
+![Alt](assets/picoCTF-moonwalk_flag.png)
 ```
 picoCTF{beep_boop_im_in_space}
 ```
-![[picoctf-moonwalk_proof.png]]
+![Alt](assets/picoctf-moonwalk_proof.png)
