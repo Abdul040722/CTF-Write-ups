@@ -1,4 +1,5 @@
 # 🛡️ Cybersecurity Project Portfolio: Master Index
+*Notable challenges include: "Very very very hidden", "m00nwalk," "Secretdoor," "Maze," "you_bee_ex," and "Hero."*
 
 ### 1. Digital Forensics & Steganography
 *Focus: Data recovery, hidden message extraction, and disk/network investigation.*
